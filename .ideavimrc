@@ -1,11 +1,10 @@
 "" Source your .vimrc
 source ~/dotconfigs/vim/common.vim
+source ~/dotconfigs/ideavim/ideavim-actions.vim
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
-" Enable g; and g,
-nnoremap g; :action JumpToLastChange<Enter>
 
 " Plugins
 Plug 'tpope/vim-surround'
@@ -13,59 +12,18 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-scripts/ReplaceWithRegister'
 
 " custom entries
 set clipboard+=unnamed
 set clipboard+=ideaput
 
-"" searching
-set ignorecase
-set smartcase
-nnoremap /v/ /\V
-nnoremap ?v? ?\V
 
-inoremap jj <ESC>
-
-"" from https://towardsdatascience.com/the-essential-ideavim-remaps-291d4cd3971b
-nnoremap \e :e C:/Users/dawsonp/.ideavimrc<CR>
-nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
-
-let mapleader = " "
-
-nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
-
-"" Terminal
-nnoremap <c-t> :action ActivateTerminalToolWindow<CR>
-nnoremap <leader>t :action Terminal.OpenInTerminal<CR>
-
-"" Window navigation
-nnoremap <Leader>en :action EditSourceInNewWindow<CR>
-nnoremap <Leader>n :action NextWindow<CR>
-nnoremap <Leader>q :action CloseContent<CR>
 
 "" Editing
 set ideajoin
 set idearefactormode=keep
 
-map <C-e> :action RecentFiles<CR>
-nnoremap <leader>c :action CommentByLineComment<CR>
-nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
-nnoremap gu :action FindUsagesMenuGroup<CR>
-
-map <leader>,r :action ContextRun<CR>
-map <leader>,d :action ContextDebug<CR>
-map <leader>,u :action Run<CR>
-map <leader>,t :action ActivateRunToolWindows<CR>
-map <leader>n @@
-
-" VCS
-nnoremap <leader>vd :action Compare.SameVersion<CR>
-nnoremap <leader>vb :action Git.CompareWithBranch<CR>
-nnoremap <leader>vl :action Vcs.Show.Log<CR>
-nnoremap <leader>vf :action Vcs.ShowTabbedFileHistory<CR>
-nnoremap <leader>va :action Annotate<CR>
-nnoremap <leader>vc :action ActivateCommitToolWindow<CR>
-nnoremap <leader>vu :action Vcs.UpdateProject<CR>
 
 " NERDtree
 nnoremap <leader>p :NERDTree<CR>
