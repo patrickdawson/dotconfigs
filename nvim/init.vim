@@ -1,6 +1,6 @@
 syntax on
 
-source ../vim/common.vim
+source ~/dotconfigs/vim/common.vim
 
 set tabstop=4 softtabstop=4
 set shiftwidth=4
