@@ -24,9 +24,9 @@ set clipboard+=ideaput
 set ideajoin
 set idearefactormode=keep
 
-
 " NERDtree
-nnoremap <leader>p :NERDTree<CR>
+nnoremap <leader>po :NERDTree<CR>
+nnoremap <leader>pf :NERDTreeFind<CR>
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \r to the Reformat Code action
