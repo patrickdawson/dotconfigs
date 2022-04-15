@@ -13,21 +13,27 @@ nnoremap <leader>t :action Terminal.OpenInTerminal<CR>
 
 " Navigation
 map <C-e> :action RecentFiles<CR>
-nnoremap gd :action GotoDeclaration<CR>
-nnoremap gb :action JumpToLastChange<CR>
-nnoremap <leader>s :action FileStructurePopup<CR>
+" nnoremap <leader>gd :action GotoDeclaration<CR>
+nnoremap <leader>ge :action JumpToLastChange<CR>
+nnoremap <leader>gb :action Back<CR>
+nnoremap <leader>gf :action Forward<CR>
+nnoremap <leader>gs :action FileStructurePopup<CR>
 nnoremap <leader>uf :action FindUsagesInFile<CR>
 nnoremap <leader>un :action NextHighlightedUsage<CR>
-nnoremap gu :action FindUsagesMenuGroup<CR>
+nnoremap <leader>gu :action FindUsagesMenuGroup<CR>
 
 "" Window navigation
 nnoremap <Leader>en :action EditSourceInNewWindow<CR>
 nnoremap <Leader>n :action NextWindow<CR>
 nnoremap <Leader>q :action CloseContent<CR>
+nnoremap <Leader>ww :action MoveEditorToOppositeTabGroup<CR>
 
 " Editing
 nnoremap <leader>c :action CommentByLineComment<CR>
 nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
+nnoremap <leader>it :action InsertLiveTemplate<CR>
+inoremap <A-j> <C-o>:action InsertLiveTemplate<CR>
+nnoremap <leader>is :action SurroundWithLiveTemplate<CR>
 
 " Run/Debug
 map <leader>,r :action ContextRun<CR>
