@@ -1,4 +1,4 @@
-syntax on
+ syntax on
 
 source ~/dotconfigs/vim/common.vim
 
@@ -11,8 +11,14 @@ set number
 
 call plug#begin()
 Plug 'gruvbox-community/gruvbox'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'vim-airline/vim-airline'
+Plug 'preservim/nerdtree'
 call plug#end()
 
 colorscheme gruvbox
+
+" telescope config
+source ~/dotconfigs/nvim/telescope.vim
+source ~/dotconfigs/nvim/nerdtree.vim
