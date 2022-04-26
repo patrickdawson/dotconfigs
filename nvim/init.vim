@@ -30,3 +30,9 @@ source ~/dotconfigs/nvim/telescope.vim
 source ~/dotconfigs/nvim/nerdtree.vim
 source ~/dotconfigs/nvim/coc.vim
 
+augroup iss_ft
+  au!
+  autocmd BufNewFile,BufRead *.iss   set syntax=pascal
+augroup END
+
+let g:pascal_fpc=1
