@@ -12,7 +12,6 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'vim-scripts/ReplaceWithRegister'
 
 " custom entries
 set clipboard+=unnamed
