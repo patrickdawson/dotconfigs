@@ -11,6 +11,10 @@ set number
 
 call plug#begin()
 Plug 'gruvbox-community/gruvbox'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'vim-airline/vim-airline'
@@ -22,7 +26,6 @@ call plug#end()
 
 colorscheme gruvbox
 
-" telescope config
 source ~/dotconfigs/nvim/telescope.vim
 source ~/dotconfigs/nvim/nerdtree.vim
 source ~/dotconfigs/nvim/coc.vim
