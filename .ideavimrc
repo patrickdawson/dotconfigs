@@ -12,12 +12,13 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'machakann/vim-highlightedyank'
 
 " custom entries
 set clipboard+=unnamed
 set clipboard+=ideaput
 
-
+let g:highlightedyank_highlight_duration = "500"
 
 "" Editing
 set ideajoin

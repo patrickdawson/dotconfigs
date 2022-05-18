@@ -1,4 +1,4 @@
-set scrolloff=5
+set scrolloff=2
 set number relativenumber
 
 " search
