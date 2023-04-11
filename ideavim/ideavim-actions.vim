@@ -37,6 +37,7 @@ nmap <leader>j <Action>(NextOccurence)
 
 "" Window management
 nmap <leader>ww <Action>(MoveEditorToOppositeTabGroup)
+nmap <leader>wc <Action>(CloseContent)
 nmap <leader>+ <Action>(StretchSplitToRight)
 nmap <leader>- <Action>(StretchSplitToLeft)
 nmap <leader>*+ <Action>(StretchSplitToTop)
@@ -55,10 +56,10 @@ nnoremap <leader>o :action OptimizeImports<CR>
 nnoremap <leader>sc :action StringManipulation.ToCamelCase<CR>
 
 " Run/Debug
-map <leader>,r <Action>(ContextRun)
-map <leader>,d <Action>(ContextDebug)
+map <leader>,r <Action>(RunClass)
+map <leader>,d <Action>(DebugClass)
 map <leader>,u <Action>(Run)
-map <leader>,t <Action>(ActivateRunToolWindows)
+map <leader>,t <Action>(ChooseRunConfiguration)
 
 " VCS
 nmap <leader>vv <Action>(Git.Menu)
@@ -72,3 +73,4 @@ nmap <leader>vu <Action>(Vcs.UpdateProject)
 nmap <leader>vn <Action>(VcsShowNextChangeMarker)
 nmap <leader>vp <Action>(VcsShowPrevChangeMarker)
 nmap <leader>vr <Action>(Vcs.RollbackChangedLines)
+nmap <leader>vo <Action>(Git.Branches)
