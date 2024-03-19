@@ -3,20 +3,22 @@ source ~/dotconfigs/vim/common.vim
 source ~/dotconfigs/ideavim/ideavim-actions.vim
 
 " Plugins
-Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'machakann/vim-highlightedyank'
 Plug 'easymotion/vim-easymotion'
-# Plug 'chrisbra/matchit'
+" Plug 'chrisbra/matchit'
 Plug 'vim-scripts/argtextobj.vim'
 Plug 'tommcdo/vim-exchange'
+Plug 'tpope/vim-surround'
 
 " custom entries
 set clipboard+=unnamed
 set clipboard+=ideaput
+vmap <C-c> "+y
+vmap <C-x> "+x
 
 let g:highlightedyank_highlight_duration = "500"
 
@@ -24,6 +26,7 @@ let g:highlightedyank_highlight_duration = "500"
 set ideajoin
 set idearefactormode=keep
 set ideamarks
+set quickscope
 
 " NERDtree
 nnoremap <leader>po :NERDTree<CR>

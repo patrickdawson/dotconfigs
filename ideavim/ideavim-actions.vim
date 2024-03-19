@@ -14,6 +14,7 @@ nmap <leader>fu <Action>(FindUsages)
 nmap <leader>fn <Action>(NextOccurence)
 nmap <leader>fp <Action>(PreviousOccurence)
 nmap <leader>e <Action>(GotoNextError)
+nmap <leader>aa <Action>(GotoAction)
 
 " new syntax because otherwise Forward does activate after action Back
 " new syntax does not allow noremap
@@ -74,3 +75,11 @@ nmap <leader>vn <Action>(VcsShowNextChangeMarker)
 nmap <leader>vp <Action>(VcsShowPrevChangeMarker)
 nmap <leader>vr <Action>(Vcs.RollbackChangedLines)
 nmap <leader>vo <Action>(Git.Branches)
+
+
+" NERDtree
+nmap <leader>po :NERDTree<CR>
+nmap <leader>pf :NERDTreeFind<CR>
+nmap <leader>pc :NERDTreeClose<CR>
+nmap <leader>pt :NERDTreeToggle<CR>
+nmap <leader>pr :NERDTreeRefreshRoot<CR>
