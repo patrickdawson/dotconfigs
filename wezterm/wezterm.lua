@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
+local mux = wezterm.mux
 
 local config = {}
 -- use config builder object if possible
@@ -21,8 +22,8 @@ config.default_workspace = "home"
 
 -- tab bar
 config.use_fancy_tab_bar = false
--- config.hide_tab_bar_if_only_one_tab = true
 config.status_update_interval = 1000
+
 wezterm.on("update-right-status", function(window, pane)
 	-- workspace name
 	local ws = window:active_workspace()
@@ -123,6 +124,36 @@ config.key_tables = {
 		{ key = "Enter", action = "PopKeyTable" },
 	},
 }
+
+-- startup
+wezterm.on("gui-startup", function(cmd)
+	-- allow `wezterm start -- something` to affect what we spawn
+	-- in our initial window
+	local args = {}
+	if cmd then
+		args = cmd.args
+	end
+
+	-- Set a workspace for coding on a current project
+	-- Top pane is for the editor, bottom pane is for the build tool
+	local project_dir = wezterm.home_dir .. "/wezterm"
+	local tab, build_pane, window = mux.spawn_window({
+		workspace = "coding",
+		cwd = project_dir,
+		args = args,
+	})
+	local editor_pane = build_pane:split({
+		direction = "Top",
+		size = 0.6,
+		cwd = project_dir,
+	})
+	tab:set_title("main")
+	local weztab = window:spawn_tab({ cwd = "Users/patrickdawson/.config/wezterm" })
+	weztab:set_title("wezterm")
+
+	-- activate main tab
+	tab:activate()
+end)
 
 -- plafom specific
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
