@@ -10,10 +10,6 @@ end
 
 -- settings
 config.color_scheme = "catppuccin-frappe"
-config.font = wezterm.font_with_fallback({
-	{ family = "CaskaydiaCove Nerd Font", scale = 1.4 },
-	{ family = "JetBrains Mono", scale = 1.2 },
-})
 config.window_background_opacity = 0.9
 config.window_decorations = "RESIZE"
 config.window_close_confirmation = "AlwaysPrompt"

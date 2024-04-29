@@ -3,6 +3,12 @@ local wezterm = require("wezterm")
 local module = {}
 
 function module.apply_to_config(config)
+	-- override font for scaling
+	config.font = wezterm.font_with_fallback({
+		{ family = "CaskaydiaCove Nerd Font", scale = 1.4 },
+		{ family = "JetBrains Mono", scale = 1.2 },
+	})
+
 	-- Open wezterm config file quickly
 	table.insert(config.keys, {
 		key = ",",
