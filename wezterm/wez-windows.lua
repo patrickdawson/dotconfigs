@@ -5,9 +5,36 @@ local module = {}
 function module.apply_to_config(config)
 	-- override font for scaling
 	config.font = wezterm.font_with_fallback({
-		{ family = "CaskaydiaCove Nerd Font", scale = 1.2 },
+		{ family = "CaskaydiaCove Nerd Font", scale = 1.1 },
 		{ family = "JetBrains Mono", scale = 1.2 },
 	})
+
+	-- launcher menu
+	config.launch_menu = {
+		{
+			label = "Pwsh Dev",
+			args = { "pwsh" },
+			cwd = "C:/dev",
+		},
+		{
+			label = "Pwsh Storage",
+			args = { "pwsh" },
+			cwd = "C:/dev/storage",
+		},
+		{
+			label = "Pwsh zwickroell-software-products",
+			args = { "pwsh" },
+			cwd = "C:/dev/zwickroell-software-products",
+		},
+		{
+			label = "Cmd.exe",
+			args = { "cmd" },
+		},
+		{
+			label = "btop",
+			args = { "btop" },
+		},
+	}
 
 	config.default_prog = { "pwsh", "-NoLogo" }
 	config.default_cwd = "C:/dev"

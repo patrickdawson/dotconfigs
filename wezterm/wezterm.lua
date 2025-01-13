@@ -11,9 +11,9 @@ end
 -- settings
 config.color_scheme = "catppuccin-frappe"
 config.window_background_opacity = 0.9
-config.window_decorations = "RESIZE"
+-- config.window_decorations = "RESIZE"
 config.window_close_confirmation = "AlwaysPrompt"
-config.scrollback_lines = 3000
+config.scrollback_lines = 10000
 config.default_workspace = "home"
 
 -- tab bar
@@ -49,7 +49,7 @@ wezterm.on("update-right-status", function(window, pane)
 		{ Text = wezterm.nerdfonts.fa_code .. " " .. cmd },
 		{ Text = "|" },
 		{ Foreground = { Color = "FFB86C" } },
-		{ Text = wezterm.nerdfonts.md_folder .. " " .. file_name },
+		{ Text = wezterm.nerdfonts.md_folder .. " " .. cwd },
 		"ResetAttributes",
 		{ Text = "|" },
 		{ Text = wezterm.nerdfonts.md_clock .. " " .. time },
@@ -68,6 +68,9 @@ config.keys = {
 	-- Send C-a when pressing C-a twice (because leader is C-a)
 	{ key = "a", mods = "LEADER", action = act.SendKey({ key = "a", mods = "CTRL" }) },
 	{ key = "c", mods = "LEADER", action = act.ActivateCopyMode },
+
+	-- launch_menu
+	{ key = ";", mods = "LEADER", action = act.ShowLauncherArgs({ flags = "LAUNCH_MENU_ITEMS" }) },
 
 	-- Pane keybindings
 	{ key = "-", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
@@ -146,21 +149,17 @@ wezterm.on("gui-startup", function(cmd)
 	end
 
 	-- Set a workspace for coding on a current project
-	-- Top pane is for the editor, bottom pane is for the build tool
-	local project_dir = wezterm.home_dir .. "/wezterm"
 	local tab, build_pane, window = mux.spawn_window({
 		workspace = "coding",
-		cwd = project_dir,
-		args = args,
+		cwd = "C:/dev",
 	})
-	local editor_pane = build_pane:split({
-		direction = "Top",
-		size = 0.6,
-		cwd = project_dir,
-	})
-	tab:set_title("main")
-	local weztab = window:spawn_tab({ cwd = "Users/patrickdawson/.config/wezterm" })
-	weztab:set_title("wezterm")
+	tab:set_title("dev")
+
+	local storagetab = window:spawn_tab({ cwd = "C:/dev/storage" })
+	storagetab:set_title("storage")
+
+	local zrsptab = window:spawn_tab({ cwd = "C:/dev/zwickroell-software-products" })
+	zrsptab:set_title("zrsp")
 
 	-- activate main tab
 	tab:activate()
