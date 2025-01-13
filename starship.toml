@@ -5,12 +5,8 @@ palette = "catppuccin_frappe"
 
 add_newline = true
 
-format = '$all'
-# format = '$all$directory$character'
-# format = '''
-# [┌───────────────────>](bold green)
-# [│](bold green)$directory$rust$package
-# [└─>](bold green) '''
+command_timeout = 2000
+
 
 [character]
 # Note the use of Catppuccin color 'maroon'
@@ -24,7 +20,11 @@ truncation_length = 4
 style = "bold lavender"
 
 [time]
-disabled = false
+disabled = true
+
+[dotnet]
+# disabled because of project.json of nx
+disabled = true
 
 # palette tables should be last in the config ⚓️
 [palettes.catppuccin_macchiato]
