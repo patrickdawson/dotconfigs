@@ -1,5 +1,5 @@
 [plugin]
-deps = []
+deps = [{ use = "yazi-rs/plugins:jump-to-char", rev = "600614a" }]
 
 [flavor]
 deps = [{ use = "yazi-rs/flavors:catppuccin-macchiato", rev = "fc8eeaa" }, { use = "yazi-rs/flavors:catppuccin-latte", rev = "fc8eeaa" }]
