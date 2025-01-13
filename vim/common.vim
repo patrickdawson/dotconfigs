@@ -10,6 +10,6 @@ set smartcase
 nnoremap /v/ /\V
 nnoremap ?v? ?\V
 
-inoremap jj <ESC>
+inoremap jf <ESC>
 
 let mapleader = " "

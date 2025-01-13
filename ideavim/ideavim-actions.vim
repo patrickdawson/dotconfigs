@@ -43,12 +43,14 @@ nmap <leader>+ <Action>(StretchSplitToRight)
 nmap <leader>- <Action>(StretchSplitToLeft)
 nmap <leader>*+ <Action>(StretchSplitToTop)
 nmap <leader>*- <Action>(StretchSplitToBottom)
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+nnoremap <leader>\ <C-w>v
+nnoremap <leader>- <C-w>s
 
 " Editing
-nnoremap <C-j> :m +1<CR>
-nnoremap <C-k> :m -2<CR>
-inoremap <C-j> <Esc>:m +1<CR>gi
-inoremap <C-k> <Esc>:m -2<CR>gi
 nnoremap <leader>rt :action Refactorings.QuickListPopupAction<CR>
 nnoremap <leader>it :action InsertLiveTemplate<CR>
 inoremap <A-j> <C-o>:action InsertLiveTemplate<CR>
