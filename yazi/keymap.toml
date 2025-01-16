@@ -124,12 +124,15 @@ keymap = [
 	{ on = [ ",", "r" ], run = "sort random --reverse=no",                      desc = "Sort randomly" },
 
 	# Goto
-	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
-	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Goto ~/.config" },
-	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Goto ~/Downloads" },
-	{ on = [ "g", "s" ],       run = "cd /dev/storage",   desc = "Goto /dev/storage" },
-	{ on = [ "g", "i" ],       run = "cd X:/Zwick/testXpert Storage",   desc = "Goto X:/Zwick/testXpert Storage" },
-	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
+	{ on = [ "g", "<Space>" ],     run = "cd --interactive", desc = "Jump interactively" },
+	{ on = [ "g", "h", "h" ],      run = "cd ~",             desc = "Go home" },
+	{ on = [ "g", "c" ],           run = "cd ~/.config",     desc = "Goto ~/.config" },
+	{ on = [ "g", "d" ],           run = "cd ~/Downloads",   desc = "Goto ~/Downloads" },
+	{ on = [ "g", "z", "s"],       run = "cd '~/OneDrive - ZwickRoell GmbH & Co. KG/Bilder/Screenshots/2025'", desc = "Go to screenshots 2025" },
+	{ on = [ "g", "z", "t", "t"],  run = "cd //zue/dfs/transfer/DawsonP", desc = "Goto Zwick Transfer" },
+	{ on = [ "g", "z", "t", "s"],  run = "cd Q:/DawsonP", desc = "Go USS Transfer" },
+	{ on = [ "g", "z", "d", "s" ], run = "cd /dev/storage",   desc = "Goto /dev/storage" },
+	{ on = [ "g", "z", "s", "z" ], run = "cd X:/Zwick/testXpert Storage",   desc = "Goto X:/Zwick/testXpert Storage" },
 
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
@@ -156,6 +159,11 @@ keymap = [
 	# Help
 	{ on = "~",    run = "help", desc = "Open help" },
 	{ on = "<F1>", run = "help", desc = "Open help" },
+]
+
+prepend_keymap = [
+	{ on = "f", run = 'plugin jump-to-char', desc = "Jump to char" },
+	{ on = "!", run = 'shell "powershell.exe" --block', desc = "Open powershell here" },
 ]
 
 [tasks]
@@ -356,7 +364,4 @@ keymap = [
 	{ on = "f", run = "filter", desc = "Apply a filter for the help items" },
 ]
 
-[[manager.prepend_keymap]]
-on   = "f"
-run  = "plugin jump-to-char"
-desc = "Jump to char"
+
