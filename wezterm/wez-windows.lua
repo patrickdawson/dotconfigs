@@ -12,6 +12,10 @@ function module.apply_to_config(config)
 	-- launcher menu
 	config.launch_menu = {
 		{
+			label = "yazi",
+			args = { "yazi" },
+		},
+		{
 			label = "Pwsh Dev",
 			args = { "pwsh" },
 			cwd = "C:/dev",
