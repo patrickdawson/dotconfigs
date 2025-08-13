@@ -85,3 +85,5 @@ nmap <leader>pf :NERDTreeFind<CR>
 nmap <leader>pc :NERDTreeClose<CR>
 nmap <leader>pt :NERDTreeToggle<CR>
 nmap <leader>pr :NERDTreeRefreshRoot<CR>
+
+nmap <leader>pp <Action>($LRU)
