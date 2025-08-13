@@ -1,7 +1,19 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "42f64c0"
-hash = "6d1fdb3792f6c003ab8ec0266c5eb142"
+rev = "b12a9ab"
+hash = "a670c03eb3760812e044a24f94cedc55"
 
-[flavor]
-deps = []
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-macchiato"
+rev = "68326b4"
+hash = "3ec21bcfd2735cfcbab61faaf43e59e4"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-latte"
+rev = "68326b4"
+hash = "5dffea1e87c50b18b8bb1599f6d4881a"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-latte"
+rev = "68326b4"
+hash = "5dffea1e87c50b18b8bb1599f6d4881a"
