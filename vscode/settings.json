@@ -1,0 +1,123 @@
+{
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "outline.showProperties": false,
+  "outline.showVariables": false,
+  "editor.formatOnSave": true,
+  "mochaExplorer.logfile": "C:\\dev\\tmp\\benl.log",
+  "totalTypeScript.hiddenTips": [
+    "variable-type-annotation",
+    "ts-object-type",
+    "typeof",
+    "basic-types",
+    "typing-function-parameters"
+  ],
+  "github.copilot.nextEditSuggestions.enabled": true,
+
+  "editor.lineNumbers": "relative",
+
+  "vim.leader": "<space>",
+  "vim.useSystemClipboard": false,
+	"vim.hlsearch": true,
+  "vim.highlightedyank.enable": true,
+
+  "vim.handleKeys": {
+    "<C-d>": true,
+    "<C-f>": false,
+    "<C-p>": false,
+    "<C-s>": false,
+    "<C-z>": false
+  },
+
+  "vim.insertModeKeyBindings": [
+    // quick esc
+    { "before": ["j", "f"], "after": ["<esc>"] }
+  ],
+
+  "vim.normalModeKeyBindings": [
+
+    // switch tabs
+    { "before": ["<S-h>"], "commands": [":bprevious"] },
+    { "before": ["<S-l>"], "commands": [":bnext"] },
+    { "before": ["<C-w>", "c"], "commands": [":close"] },
+
+    // splits
+    { "before": ["<C-w>", "v"], "commands": [":vsplit"] },
+    { "before": ["<C-w>", "s"], "commands": [":split"] },
+
+    // navgiation
+    {
+      "before": ["<leader>", "f", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "f", "b"],
+      "commands": ["workbench.action.showAllEditors"]
+    },
+    {
+      "before": ["<leader>", "f", "s"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    {
+      "before": ["<leader>", "f", "n"],
+      "commands": ["editor.action.nextMatchFind"]
+    },
+    {
+      "before": ["<leader>", "f", "p"],
+      "commands": ["editor.action.prevMatchFind"]
+    },
+    {
+      "before": ["<leader>", "g", "d"],
+      "commands": ["editor.action.revealDefinition"]
+    },
+    {
+      "before": ["<leader>", "g", "s"],
+      "commands": ["workbench.action.gotoSymbol"]
+    },
+    {
+      "before": ["<leader>", "e", "n"],
+      "commands": ["editor.action.marker.next"]
+    },
+    {
+      "before": ["<leader>", "e", "p"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    { "before": ["g", "j"], "commands": ["workbench.action.navigateBack"] },
+    { "before": ["g", "k"], "commands": ["workbench.action.navigateForward"] },
+    {
+      "before": ["g", "e"],
+      "commands": ["workbench.action.navigateToLastEditLocation"]
+    },
+
+    // edit
+    { "before": ["<S-k>"], "commands": ["editor.action.showHover"]},
+    { "before": ["<leader>", "r", "r"], "commands": ["editor.action.rename"]},
+    { "before": ["<leader>", "r", "m"], "commands": ["editor.action.format"]},
+    { "before": ["<leader>", "r", "a"], "commands": ["editor.action.autoFix"]},
+    { "before": ["<leader>", "r", "q"], "commands": ["editor.action.quickFix"]},
+
+    // explorer
+    { "before": ["<leader>", "p", "o"], "commands": ["workbench.view.explorer"] },
+    { "before": ["<leader>", "p", "c"], "commands": ["workbench.action.closeSidebar"] },
+  ],
+
+  "vim.visualModeKeyBindings": [
+  {
+    "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    },
+    {
+      "before": ["<S-j>"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    },
+    {
+      "before": ["<S-k>"],
+      "commands": ["editor.action.moveLinesUpAction"]
+    }
+  ]
+}
