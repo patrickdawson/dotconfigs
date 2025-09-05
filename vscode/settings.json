@@ -1,33 +1,53 @@
 {
-  "workbench.colorTheme": "Catppuccin Mocha",
-  "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
+  // "editor.fontFamily": "Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
+  "editor.fontSize": 13,
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.tree.indent": 16,
+
   "diffEditor.ignoreTrimWhitespace": false,
   "outline.showProperties": false,
   "outline.showVariables": false,
-  "editor.formatOnSave": true,
-  "mochaExplorer.logfile": "C:\\dev\\tmp\\benl.log",
+
   "totalTypeScript.hiddenTips": [
     "variable-type-annotation",
     "ts-object-type",
     "typeof",
     "basic-types",
-    "typing-function-parameters"
+    "typing-function-parameters",
+    "array-type",
+    "passing-generics-to-types",
+    "record-utility-type"
   ],
-  "github.copilot.nextEditSuggestions.enabled": true,
 
+  "typescript.tsserver.maxTsServerMemory": 8192,
+
+  "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "Write commit message according to convential commits. Use imperative mood and present tense. Use the format: `feat(scope): subject line` for new features, `fix(scope): subject line` for bug fixes, and `chore(scope): subject line` for maintenance tasks, and `tests(scope): subject line`. Subject line should have a max length of 81 characters. Include a multi-line description if necessary. Always add `TXR-xxx` as the last line separated by a new line."
+    }
+  ],
+
+  "editor.formatOnSave": true,
   "editor.lineNumbers": "relative",
 
   "vim.leader": "<space>",
   "vim.useSystemClipboard": false,
-	"vim.hlsearch": true,
+  "vim.hlsearch": true,
   "vim.highlightedyank.enable": true,
+  "vim.easymotion": true,
 
   "vim.handleKeys": {
     "<C-d>": true,
     "<C-f>": false,
+    "<C-i>": false,
+    "<C-k>": false,
     "<C-p>": false,
     "<C-s>": false,
-    "<C-z>": false
+    "<C-z>": false,
+    "<C-b>": false
   },
 
   "vim.insertModeKeyBindings": [
@@ -36,15 +56,28 @@
   ],
 
   "vim.normalModeKeyBindings": [
-
-    // switch tabs
+    // tabs
     { "before": ["<S-h>"], "commands": [":bprevious"] },
     { "before": ["<S-l>"], "commands": [":bnext"] },
     { "before": ["<C-w>", "c"], "commands": [":close"] },
+    { "before": ["<leader>", "w", "c"], "commands": [":close"] },
+    { "before": ["<leader>", "t", "c"], "commands": [":close"] },
+    {
+      "before": ["<leader>", "t", "n"],
+      "commands": ["workbench.action.files.newUntitledFile"]
+    },
 
     // splits
     { "before": ["<C-w>", "v"], "commands": [":vsplit"] },
     { "before": ["<C-w>", "s"], "commands": [":split"] },
+    {
+      "before": ["<leader>", "w", "p"],
+      "commands": ["workbench.action.moveEditorToPreviousGroup"]
+    },
+    {
+      "before": ["<leader>", "w", "n"],
+      "commands": ["workbench.action.moveEditorToNextGroup"]
+    },
 
     // navgiation
     {
@@ -56,10 +89,6 @@
       "commands": ["workbench.action.showAllEditors"]
     },
     {
-      "before": ["<leader>", "f", "s"],
-      "commands": ["workbench.action.findInFiles"]
-    },
-    {
       "before": ["<leader>", "f", "n"],
       "commands": ["editor.action.nextMatchFind"]
     },
@@ -68,8 +97,16 @@
       "commands": ["editor.action.prevMatchFind"]
     },
     {
+      "before": ["<leader>", "f", "u"],
+      "commands": ["references-view.findReferences"]
+    },
+    {
       "before": ["<leader>", "g", "d"],
       "commands": ["editor.action.revealDefinition"]
+    },
+    {
+      "before": ["<leader>", "g", "u"],
+      "commands": ["editor.action.goToReferences"]
     },
     {
       "before": ["<leader>", "g", "s"],
@@ -91,20 +128,125 @@
     },
 
     // edit
-    { "before": ["<S-k>"], "commands": ["editor.action.showHover"]},
-    { "before": ["<leader>", "r", "r"], "commands": ["editor.action.rename"]},
-    { "before": ["<leader>", "r", "m"], "commands": ["editor.action.format"]},
-    { "before": ["<leader>", "r", "a"], "commands": ["editor.action.autoFix"]},
-    { "before": ["<leader>", "r", "q"], "commands": ["editor.action.quickFix"]},
+    { "before": ["<S-k>"], "commands": ["editor.action.showHover"] },
+    { "before": ["<leader>", "r", "r"], "commands": ["editor.action.rename"] },
+    { "before": ["<leader>", "r", "m"], "commands": ["editor.action.format"] },
+    { "before": ["<leader>", "r", "a"], "commands": ["editor.action.autoFix"] },
+    {
+      "before": ["<leader>", "r", "q"],
+      "commands": ["editor.action.quickFix"]
+    },
 
     // explorer
-    { "before": ["<leader>", "p", "o"], "commands": ["workbench.view.explorer"] },
-    { "before": ["<leader>", "p", "c"], "commands": ["workbench.action.closeSidebar"] },
+    {
+      "before": ["<leader>", "p", "o"],
+      "commands": ["workbench.view.explorer"]
+    },
+    {
+      "before": ["<leader>", "p", "f"],
+      "commands": ["workbench.files.action.showActiveFileInExplorer"]
+    },
+    {
+      "before": ["<leader>", "p", "c"],
+      "commands": ["workbench.action.closeSidebar"]
+    },
+    {
+      "before": ["<leader>", "p", "s"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    {
+      "before": ["<leader>", "p", "g"],
+      "commands": ["workbench.view.scm"]
+    },
+    {
+      "before": ["<leader>", "p", "d"],
+      "commands": ["workbench.view.debug"]
+    },
+    {
+      "before": ["<leader>", "p", "t"],
+      "commands": ["workbench.view.testing.focus"]
+    },
+    {
+      "before": ["<leader>", "p", "n"],
+      "commands": ["workbench.view.extension.nx-console"]
+    },
+    {
+      "before": ["<leader>", "p", "b"],
+      "commands": ["workbench.view.extension.bookmarks"]
+    },
+
+    // git
+    {
+      "before": ["<leader>", "v", "a"],
+      "commands": ["gitlens.toggleFileBlame"]
+    },
+    {
+      "before": ["<leader>", "v", "d"],
+      "commands": ["gitlens.showQuickCommitDetails"]
+    },
+    {
+      "before": ["<leader>", "v", "f"],
+      "commands": ["gitlens.showQuickFileHistory"]
+    },
+    {
+      "before": ["<leader>", "v", "h"],
+      "commands": ["gitlens.showQuickRepoHistory"]
+    },
+    {
+      "before": ["<leader>", "v", "r"],
+      "commands": ["gitlens.showGraphPage"]
+    },
+
+    // bookmarks
+    {
+      "before": ["<leader>", "b", "m"],
+      "commands": ["bookmarks.toggle"]
+    },
+    {
+      "before": ["<leader>", "b", "l"],
+      "commands": ["bookmarks.list"]
+    },
+
+    // run and debug
+    {
+      "before": ["<leader>", ",", "s"],
+      "commands": ["workbench.action.debug.selectandstart"]
+    },
+    {
+      "before": ["<leader>", ",", "d"],
+      "commands": ["workbench.action.debug.start"]
+    },
+    {
+      "before": ["<leader>", ",", "t"],
+      "commands": ["workbench.action.tasks.runTask"]
+    },
+    {
+      "before": ["<leader>", ",", ","],
+      "commands": ["testing.reRunLastRun"]
+    },
+    {
+      "before": ["<leader>", ",", "."],
+      "commands": ["testing.debugLastRun"]
+    },
+
+    // other
+    {
+      "before": ["<leader>", "f", "n"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["<leader>", "t", "t"],
+      "commands": ["workbench.action.terminal.focus"]
+    },
+    {
+      "before": ["<leader>", "a", "c"],
+      "commands": ["workbench.action.chat.toggle"]
+    }
   ],
 
   "vim.visualModeKeyBindings": [
-  {
-    "before": [">"],
+    {
+      "before": [">"],
       "commands": ["editor.action.indentLines"]
     },
     {
@@ -119,5 +261,84 @@
       "before": ["<S-k>"],
       "commands": ["editor.action.moveLinesUpAction"]
     }
-  ]
+  ],
+  "git.autofetch": true,
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4o",
+  "gitlens.autolinks": [
+    {
+      "prefix": "TXR-",
+      "url": "https://jira.zue.zwick.de/browse/TXR-<num>"
+    }
+  ],
+  "gitlens.remotes": [
+    {
+      "name": "Zwick",
+      "domain": "git.ze.zue.zwick.de",
+      "protocol": "http",
+      "type": "GitHub"
+    }
+  ],
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]",
+    "todo"
+  ],
+  "totalTypeScript.hideAllTips": true,
+  "totalTypeScript.hideBasicTips": true,
+  "git.allowForcePush": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "gitlens.gitCommands.skipConfirmations": [
+    "fetch:command",
+    "stash-push:command",
+    "branch-create:command"
+  ],
+  // "projectManager.git.baseFolders": ["C:\\dev"],
+  "editor.aiStats.enabled": true,
+  "chat.agent.maxRequests": 50,
+  "git.replaceTagsWhenPull": true,
+  "gitlens.graph.minimap.enabled": false,
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#2f7c47",
+    "activityBar.background": "#2f7c47",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#422c74",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#2f7c47",
+    "statusBar.background": "#215732",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#2f7c47",
+    "statusBarItem.remoteBackground": "#215732",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#215732",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#21573299",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#215732",
+  "workbench.secondarySideBar.showLabels": false,
+  "nxConsole.nxCloudNotifications": "none",
+  "github.copilot.advanced": {},
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.suggest.enabled": true,
+  "chat.tools.terminal.autoApprove": {
+    "rm": false,
+    "rmdir": false,
+    "del": false,
+    "kill": false,
+    "curl": false,
+    "wget": false,
+    "eval": false,
+    "chmod": false,
+    "chown": false,
+    "/^Remove-Item\\b/i": false,
+    "yarn run": true
+  }
 }
